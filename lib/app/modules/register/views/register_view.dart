@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:kafiil/app/modules/register/views/widgets/register_complete_data_form.dart';
 import 'package:kafiil/app/modules/register/views/widgets/register_form.dart';
 import 'package:kafiil/app/resources/asset_manager.dart';
 import 'package:kafiil/app/resources/color_manager.dart';
@@ -18,13 +18,25 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.all(AppPadding.p16),
-            child: SvgPicture.asset(
-              IconAssets.backButtonIcon,
-              height: AppSize.s25,
-            ),
-          ),
+          leading: GetBuilder<RegisterController>(builder: (controller) {
+            return InkWell(
+              onTap: () {
+                if (controller.widgetIndex == 0) {
+                  Get.back();
+                } else {
+                  controller.widgetIndex--;
+                  controller.update();
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(AppPadding.p16),
+                child: SvgPicture.asset(
+                  IconAssets.backButtonIcon,
+                  height: AppSize.s25,
+                ),
+              ),
+            );
+          }),
           title: Text(
             AppStrings.register,
             style: getSemiBoldStyle(
@@ -34,16 +46,13 @@ class RegisterView extends GetView<RegisterController> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(AppPadding.p16),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(child: SvgPicture.asset(IconAssets.registerStepOneIcon)),
-                const Gap(AppSize.s16),
-                const RegisterForm()
-              ],
-            ),
-          ),
+          child: GetBuilder<RegisterController>(builder: (controller) {
+            if (controller.widgetIndex == 0) {
+              return const RegisterForm();
+            } else {
+              return const RegisterCompleteDataForm();
+            }
+          }),
         ));
   }
 }

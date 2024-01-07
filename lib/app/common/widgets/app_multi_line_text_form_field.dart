@@ -46,12 +46,12 @@ class _AppMultiLineTextFormFieldState extends State<AppMultiLineTextFormField> {
 
       padding: const EdgeInsets.symmetric(horizontal: AppSize.s8),
       decoration: BoxDecoration(
-        // border: Border.all(
-        //   width: 1,
-        //   color: Colors.grey,
-        // ),
-        borderRadius: BorderRadius.circular(AppSize.s10),
-      ),
+          // border: Border.all(
+          //   width: 1,
+          //   color: Colors.grey,
+          // ),
+          borderRadius: BorderRadius.circular(AppSize.s10),
+          color: ColorManager.backgroundGreyGrey),
       child: TextFormField(
         keyboardType: TextInputType.multiline,
         controller: widget.controller,

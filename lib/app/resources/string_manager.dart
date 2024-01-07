@@ -19,6 +19,10 @@ class AppStrings {
   static const String passwordMustMatch = "Password must match";
   static const String passwordValidationMessage =
       "Password must be 6 characters or more";
+  static const String next = "Next";
+  static const String about = "About";
+  static const String salary = "Salary";
+  static const String birthDate = "Birth Date";
 }
 
 class AppLinks {}
