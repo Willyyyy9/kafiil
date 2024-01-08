@@ -17,6 +17,11 @@ class IconAssets {
   static const String circleMinusIcon = '${iconPath}circleminusicon.svg';
   static const String circlePlusIcon = '${iconPath}circleplusicon.svg';
   static const String calendarIcon = '${iconPath}calendaricon.svg';
+  static const String facebookIcon = '${iconPath}facebookicon.svg';
+  static const String twitterIcon = '${iconPath}twittericon.svg';
+  static const String linkedinIcon = '${iconPath}linkedinicon.svg';
+  static const String instagramIcon = '${iconPath}instagramicon.svg';
+  static const String requiredIcon = '${iconPath}requiredicon.svg';
 }
 
 class JsonAssets {}

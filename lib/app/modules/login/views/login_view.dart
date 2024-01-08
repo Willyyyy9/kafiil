@@ -29,36 +29,38 @@ class LoginView extends GetView<LoginController> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(AppPadding.p16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(child: SvgPicture.asset(IconAssets.accountLoginIcon)),
-              const LoginForm(),
-              const Gap(AppSize.s16),
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AutoSizeText(
-                      AppStrings.dontHaveAnAccount,
-                      style: getMediumStyle(
-                          color: ColorManager.grey, fontSize: FontSize.s14),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Get.toNamed(Routes.REGISTER);
-                      },
-                      child: AutoSizeText(
-                        AppStrings.register,
-                        style: getSemiBoldStyle(
-                            color: ColorManager.primary,
-                            fontSize: FontSize.s14),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(child: SvgPicture.asset(IconAssets.accountLoginIcon)),
+                const LoginForm(),
+                const Gap(AppSize.s16),
+                Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AutoSizeText(
+                        AppStrings.dontHaveAnAccount,
+                        style: getMediumStyle(
+                            color: ColorManager.grey, fontSize: FontSize.s14),
                       ),
-                    )
-                  ],
-                ),
-              )
-            ],
+                      TextButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.REGISTER);
+                        },
+                        child: AutoSizeText(
+                          AppStrings.register,
+                          style: getSemiBoldStyle(
+                              color: ColorManager.primary,
+                              fontSize: FontSize.s14),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }
