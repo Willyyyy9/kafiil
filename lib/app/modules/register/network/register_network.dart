@@ -45,7 +45,7 @@ class RegisterNetwork {
       //   data: data,
       //   options: Options(),
       // );
-      print(response.reasonPhrase);
+      print(response.statusCode);
       EasyLoading.showError(response.reasonPhrase.toString());
       return response.toString();
     } on DioException catch (e) {
