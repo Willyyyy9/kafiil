@@ -18,10 +18,10 @@ Future<Box> openHiveBox(String boxName) async {
 initObjects() async {
   GetIt.I
       .registerLazySingleton<Box>(() => Hive.box(AppStrings.settingsHiveBox));
-  GetIt.I.registerLazySingleton<Dio>(() => Dio(BaseOptions(headers: {
-        "Accept": "Application/json",
-        "Accept-Language": "ar",
-        "Content-Type": "multipart/form-data",
+  GetIt.I.registerLazySingleton<Dio>(() => Dio(BaseOptions(
+      followRedirects: false,
+      validateStatus: (status) {
+        return status! < 500;
       })));
 }
 

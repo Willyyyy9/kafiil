@@ -46,10 +46,18 @@ class AppStrings {
   static const String socialMediaValidationMessage =
       "Please select your favourite social media platforms";
   static const String loading = "Loading";
+  static const String passwordInvalid = "Password Invalid";
+  static const String emailNotFound = "Email not found";
+  static const String whoAmI = "Who Am I";
+  static const String services = "Services";
+  static const String popularServices = "Popular Services";
+  static const String countries = "Countries";
+  static const String country = "Country";
+  static const String captial = "Capital";
 }
 
 class AppLinks {
-  static const String baseUrl = "http://test.kafiil.com/api/test";
+  static const String baseUrl = "https://test.kafiil.com/api/test";
 }
 
 class AttributeStrings {
@@ -66,4 +74,5 @@ class AttributeStrings {
   static const String type = "type";
   static const String passwordConfirmation = "password_confirmation";
   static const String avatar = "avatar";
+  static const String accessToken = "accessToken";
 }

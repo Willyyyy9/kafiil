@@ -22,6 +22,20 @@ class IconAssets {
   static const String linkedinIcon = '${iconPath}linkedinicon.svg';
   static const String instagramIcon = '${iconPath}instagramicon.svg';
   static const String requiredIcon = '${iconPath}requiredicon.svg';
+  static const String whoAmIIcon = '${iconPath}whoamiicon.svg';
+  static const String countryIcon = '${iconPath}countryicon.svg';
+  static const String servicesIcon = '${iconPath}servicesicon.svg';
+  static const String selectedWhoAmIIcon = '${iconPath}selectedwhoamiicon.svg';
+  static const String selectedCountryIcon =
+      '${iconPath}selectedcountryicon.svg';
+  static const String selectedServicesIcon =
+      '${iconPath}selectedservicesicon.svg';
+  static const String firstPageIcon = '${iconPath}firstpageicon.svg';
+  static const String lastPageIcon = '${iconPath}lastpageicon.svg';
+  static const String nextPageIcon = '${iconPath}previouspageicon.svg';
+  static const String previousPageIcon = '${iconPath}nextpageicon.svg';
+  static const String starIcon = '${iconPath}staricon.svg';
+  static const String basketIcon = '${iconPath}basketicon.svg';
 }
 
 class JsonAssets {}
