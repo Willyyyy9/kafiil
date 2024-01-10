@@ -26,28 +26,23 @@ class RegisterNetwork {
     }
   }
 
-  Future<dynamic> register(Map<String, String> data, File selectedImage) async {
+  Future<dynamic> register(
+      Map<String, dynamic> data, File selectedImage) async {
     try {
-      print(data);
-      final request = http.MultipartRequest(
-          'POST', Uri.parse("${AppLinks.baseUrl}/user/register"));
-      request.files.add(
-        http.MultipartFile.fromBytes(
-          'avatar',
-          await selectedImage.readAsBytes(),
-          filename: selectedImage.path.split('/').last,
-        ),
-      );
-      request.fields.addAll(data);
-      final response = await request.send();
-      // var response = await dio.post(
-      //   '${AppLinks.baseUrl}/user/register',
-      //   data: data,
-      //   options: Options(),
-      // );
-      print(response.statusCode);
-      EasyLoading.showError(response.reasonPhrase.toString());
-      return response.toString();
+      String fileName = selectedImage.path.split('/').last;
+      FormData formData = FormData.fromMap({
+        "avatar": await MultipartFile.fromFile(selectedImage.path,
+            filename: fileName),
+        ...data
+      });
+
+      final response = await dio.post("${AppLinks.baseUrl}/user/register",
+          data: formData,
+          options: Options(contentType: "multipart/form-data", headers: {
+            "Accept": "application/json",
+            "Accept-Language": "ar",
+          }));
+      return response.data;
     } on DioException catch (e) {
       throw DioException(
           message: e.message,

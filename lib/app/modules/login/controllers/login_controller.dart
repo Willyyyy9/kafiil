@@ -23,8 +23,8 @@ class LoginController extends GetxController {
       LoginResponse loginResponse = LoginResponse.fromJson(response);
       if (loginResponse.success) {
         settingsController.accessToken = loginResponse.accessToken!;
-        if (rememberMe) {
-          hive.put(AttributeStrings.accessToken, loginResponse.accessToken);
+        if (rememberMe == true) {
+          hive.put(AttributeStrings.accessToken, loginResponse.accessToken!);
         }
         Get.offAllNamed(Routes.HOME);
       } else {

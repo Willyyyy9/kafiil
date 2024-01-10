@@ -25,7 +25,7 @@ ThemeData getApplicationTheme() {
           centerTitle: true,
           color: ColorManager.transparent,
           elevation: AppSize.s0,
-          shadowColor: ColorManager.lightGrey,
+          shadowColor: ColorManager.transparent,
           titleTextStyle: getRegularStyle(
             color: ColorManager.black,
             fontSize: FontSize.s16,

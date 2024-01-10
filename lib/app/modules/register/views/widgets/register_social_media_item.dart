@@ -18,13 +18,14 @@ class RegisterSocialMediaItem extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<RegisterController>(builder: (controller) {
-      bool isSelected = controller.selectedSocialMedia.contains(title);
+      bool isSelected =
+          controller.selectedSocialMedia.contains(title.toLowerCase());
       return InkWell(
         onTap: () {
-          if (controller.selectedSocialMedia.contains(title)) {
-            controller.selectedSocialMedia.remove(title);
+          if (controller.selectedSocialMedia.contains(title.toLowerCase())) {
+            controller.selectedSocialMedia.remove(title.toLowerCase());
           } else {
-            controller.selectedSocialMedia.add(title);
+            controller.selectedSocialMedia.add(title.toLowerCase());
           }
           controller.update();
         },
@@ -48,7 +49,7 @@ class RegisterSocialMediaItem extends GetView<RegisterController> {
               ),
               const Gap(AppSize.s10),
               AutoSizeText(
-                title,
+                title.capitalizeFirst!,
                 maxLines: 1,
                 style: getSemiBoldStyle(
                     color: ColorManager.black, fontSize: FontSize.s14),

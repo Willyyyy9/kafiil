@@ -76,7 +76,6 @@ class HomeNetwork {
           options: Options(contentType: 'application/json', headers: {
             "Accept-Language": "ar",
           }));
-      print(response.data);
       return response.data;
     } on DioException catch (e) {
       throw DioException(

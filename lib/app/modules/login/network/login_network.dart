@@ -22,16 +22,11 @@ class LoginNetwork {
           }));
       return response.data;
     } on DioException catch (e) {
-      print("Dio Exception");
-      print(e.message);
       throw DioException(
           message: e.message,
           response: e.response,
           requestOptions: e.requestOptions);
     } catch (e) {
-      print("Exception");
-
-      print(e);
       throw Exception(e);
     }
   }

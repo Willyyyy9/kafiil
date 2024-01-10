@@ -29,9 +29,9 @@ class AppStrings {
   static const String female = "Female";
   static const String favouriteSocialMedia = "Favourite Social Media";
   static const String submit = "Submit";
-  static const String facebook = "Facebook";
-  static const String x = "X";
-  static const String instagram = "Instagram";
+  static const String facebook = "facebook";
+  static const String x = "x";
+  static const String instagram = "instagram";
   static const String nameValidatorMessage = "Enter your name";
   static const String nameTooLongMessage = "Name mustn't exceed 50 characters";
   static const String aboutTooLongMessage =
@@ -54,6 +54,9 @@ class AppStrings {
   static const String countries = "Countries";
   static const String country = "Country";
   static const String captial = "Capital";
+  static const String registerSuccess = "Register Success. Please Log In";
+  static const String registerError =
+      "Register Failed. Make sure you selected a unique email.";
 }
 
 class AppLinks {
@@ -75,4 +78,5 @@ class AttributeStrings {
   static const String passwordConfirmation = "password_confirmation";
   static const String avatar = "avatar";
   static const String accessToken = "accessToken";
+  static const String status = "status";
 }

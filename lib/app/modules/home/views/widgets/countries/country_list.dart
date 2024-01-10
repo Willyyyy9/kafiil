@@ -46,21 +46,23 @@ class CountryList extends GetView<HomeController> {
           ),
           const Gap(AppSize.s16),
           GetBuilder<HomeController>(builder: (controller) {
-            return ListView.separated(
-              shrinkWrap: true,
-              itemCount: controller.countryResponse!.countries.length,
-              separatorBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(AppPadding.p8),
-                  child: AppDivider(
-                    color: ColorManager.grey,
-                  ),
-                );
-              },
-              itemBuilder: (context, index) {
-                return CountryItem(
-                    country: controller.countryResponse!.countries[index]);
-              },
+            return Expanded(
+              child: ListView.separated(
+                shrinkWrap: true,
+                itemCount: controller.countryResponse!.countries.length,
+                separatorBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(AppPadding.p8),
+                    child: AppDivider(
+                      color: ColorManager.grey,
+                    ),
+                  );
+                },
+                itemBuilder: (context, index) {
+                  return CountryItem(
+                      country: controller.countryResponse!.countries[index]);
+                },
+              ),
             );
           }),
         ],

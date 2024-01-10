@@ -21,7 +21,8 @@ class ServicesWidget extends GetView<HomeController> {
         controller.getServices();
         controller.getPopularServices();
       }, builder: (controller) {
-        if (controller.serviceResponse == null) {
+        if (controller.serviceResponse == null ||
+            controller.popularServiceResponse == null) {
           return Container();
         } else {
           return Padding(
