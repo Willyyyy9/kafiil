@@ -4,7 +4,9 @@ const String jsonPath = "assets/json/";
 const String videoPath = "assets/videos/";
 const String soundPath = "sound/";
 
-class ImageAssets {}
+class ImageAssets {
+  static const String mainLogo = '${imagePath}mainlogo.png';
+}
 
 class IconAssets {
   static const String accountLoginIcon = '${iconPath}accountloginicon.svg';
@@ -36,6 +38,7 @@ class IconAssets {
   static const String previousPageIcon = '${iconPath}nextpageicon.svg';
   static const String starIcon = '${iconPath}staricon.svg';
   static const String basketIcon = '${iconPath}basketicon.svg';
+  static const String logoutIcon = '${iconPath}logouticon.svg';
 }
 
 class JsonAssets {}

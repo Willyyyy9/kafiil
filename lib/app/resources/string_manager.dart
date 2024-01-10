@@ -79,4 +79,5 @@ class AttributeStrings {
   static const String avatar = "avatar";
   static const String accessToken = "accessToken";
   static const String status = "status";
+  static const String rememberMe = "remember_me";
 }

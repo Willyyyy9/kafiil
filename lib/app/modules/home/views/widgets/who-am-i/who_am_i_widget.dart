@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:kafiil/app/modules/home/controllers/home_controller.dart';
@@ -12,6 +13,7 @@ import 'package:kafiil/app/modules/home/views/widgets/who-am-i/who_am_i_salary_w
 import 'package:kafiil/app/modules/home/views/widgets/who-am-i/who_am_i_social_media_widget.dart';
 import 'package:kafiil/app/modules/home/views/widgets/who-am-i/who_am_i_tags_widget.dart';
 import 'package:kafiil/app/modules/home/views/widgets/who-am-i/who_am_i_user_type_widget.dart';
+import 'package:kafiil/app/resources/asset_manager.dart';
 import 'package:kafiil/app/resources/color_manager.dart';
 import 'package:kafiil/app/resources/font_manager.dart';
 import 'package:kafiil/app/resources/string_manager.dart';
@@ -25,6 +27,13 @@ class WhoAmIWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          InkWell(
+              onTap: () {
+                controller.logout();
+              },
+              child: SvgPicture.asset(IconAssets.logoutIcon))
+        ],
         title: AutoSizeText(
           AppStrings.whoAmI,
           style: getSemiBoldStyle(
@@ -34,7 +43,11 @@ class WhoAmIWidget extends GetView<HomeController> {
       ),
       body: GetBuilder<HomeController>(builder: (controller) {
         if (controller.loggedInUser == null) {
-          return Container();
+          return Center(
+            child: CircularProgressIndicator(
+              color: ColorManager.primary,
+            ),
+          );
         } else {
           return Padding(
             padding: const EdgeInsets.all(AppPadding.p16),

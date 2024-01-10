@@ -22,7 +22,11 @@ class CountryWidget extends GetView<HomeController> {
       },
       builder: (controller) {
         if (controller.countryResponse == null) {
-          return Container();
+          return Center(
+            child: CircularProgressIndicator(
+              color: ColorManager.primary,
+            ),
+          );
         } else {
           return Scaffold(
             appBar: AppBar(

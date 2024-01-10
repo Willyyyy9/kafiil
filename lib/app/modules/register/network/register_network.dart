@@ -1,10 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
-import 'package:http/http.dart' as http;
 import 'package:kafiil/app/resources/string_manager.dart';
 
 class RegisterNetwork {

@@ -3,7 +3,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
-import 'package:kafiil/app/controllers/settings_controller.dart';
 import 'package:kafiil/app/modules/login/models/login_response.dart';
 import 'package:kafiil/app/modules/login/network/login_network.dart';
 import 'package:kafiil/app/resources/string_manager.dart';
@@ -13,7 +12,6 @@ class LoginController extends GetxController {
   TextEditingController loginEmailTextController = TextEditingController();
   TextEditingController loginPasswordTextController = TextEditingController();
   final loginKey = GlobalKey<FormState>();
-  SettingsController settingsController = Get.find<SettingsController>();
   final hive = GetIt.instance<Box>();
   bool isValidationSuccess = true;
   bool isPasswordObscure = true;
@@ -22,9 +20,10 @@ class LoginController extends GetxController {
     if (response['status'] != null) {
       LoginResponse loginResponse = LoginResponse.fromJson(response);
       if (loginResponse.success) {
-        settingsController.accessToken = loginResponse.accessToken!;
+        hive.put(AttributeStrings.accessToken, loginResponse.accessToken!);
+
         if (rememberMe == true) {
-          hive.put(AttributeStrings.accessToken, loginResponse.accessToken!);
+          hive.put(AttributeStrings.rememberMe, true);
         }
         Get.offAllNamed(Routes.HOME);
       } else {

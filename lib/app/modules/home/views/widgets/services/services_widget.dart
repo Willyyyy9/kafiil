@@ -23,7 +23,11 @@ class ServicesWidget extends GetView<HomeController> {
       }, builder: (controller) {
         if (controller.serviceResponse == null ||
             controller.popularServiceResponse == null) {
-          return Container();
+          return Center(
+            child: CircularProgressIndicator(
+              color: ColorManager.primary,
+            ),
+          );
         } else {
           return Padding(
             padding: const EdgeInsets.all(AppPadding.p16),
