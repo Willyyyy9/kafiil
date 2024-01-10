@@ -34,7 +34,8 @@ class RegisterSkillsWidget extends GetView<RegisterController> {
             controller.update();
           },
           options: controller.userTags
-              .map((e) => ValueItem(label: e.label, value: e.value))
+              .map((e) =>
+                  ValueItem(label: e.label.capitalizeFirst!, value: e.value))
               .toList(),
           borderWidth: 0,
           focusedBorderWidth: 0,
